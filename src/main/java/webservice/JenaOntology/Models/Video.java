@@ -13,14 +13,14 @@ import java.util.List;
 @AllArgsConstructor
 public class Video {
 
-    private String artifactName;
-    private String artifactLocation;
-    private String artifactFormat;
-    private List<String> artifactTags;
-    private String isMadeBy;
-    private String hasUsedIn;
-    private String hasTaggedBy;
-    private String isUsedBy;
+        private String artifactName;
+        private String artifactLocation;
+        private String artifactFormat;
+        private List<String> artifactTags;
+        private String isMadeBy;
+        private String hasUsedIn;
+        private String hasTaggedBy;
+        private String isUsedBy;
 
     public Video(){
         this.artifactName = "";

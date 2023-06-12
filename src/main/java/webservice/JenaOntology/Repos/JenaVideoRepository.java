@@ -88,14 +88,32 @@ public class JenaVideoRepository implements VideoRepository{
         videoIndividual.addProperty(model.getProperty(ns + "artifactLocation"), video.getArtifactLocation());
         videoIndividual.addProperty(model.getProperty(ns + "artifactFormat"), video.getArtifactFormat());
 
-        Resource videoIsMadeByResource = model.createResource(ns + video.getIsMadeBy());
-        videoIndividual.addProperty(model.getProperty(ns + "isMadeBy"), videoIsMadeByResource);
+        // Verificar si el isMadeBy existe en la entidad Programmer
+        Individual isMadeByIndividual = model.getIndividual(ns + video.getIsMadeBy());
+        if (isMadeByIndividual == null) {
+            // Si no existe, crear un nuevo individuo en la entidad Programmer
+            isMadeByIndividual = model.createIndividual(ns + video.getIsMadeBy(), model.getResource(ns + "Programmer"));
+        }
+        videoIndividual.addProperty(model.getProperty(ns + "isMadeBy"), isMadeByIndividual);
+
+        // Verificar si el isUsedBy existe en la entidad Programmer
+        Individual isUsedByIndividual = model.getIndividual(ns + video.getIsUsedBy());
+        if (isUsedByIndividual == null) {
+            // Si no existe, crear un nuevo individuo en la entidad Programmer
+            isUsedByIndividual = model.createIndividual(ns + video.getIsUsedBy(), model.getResource(ns + "Programmer"));
+        }
+        videoIndividual.addProperty(model.getProperty(ns + "isUsedBy"), isUsedByIndividual);
+
+
+       // Resource videoIsMadeByResource = model.createResource(ns + video.getIsMadeBy());
+        //videoIndividual.addProperty(model.getProperty(ns + "isMadeBy"), videoIsMadeByResource);
+        //Resource videoisUsedByResource = model.createResource(ns + video.getIsUsedBy());
+       // videoIndividual.addProperty(model.getProperty(ns + "isUsedBy"), videoisUsedByResource);
+
         Resource videohasUsedInResource = model.createResource(ns + video.getHasUsedIn());
         videoIndividual.addProperty(model.getProperty(ns + "hasUsedIn"), videohasUsedInResource);
         Resource videohasTaggedByResource = model.createResource(ns + video.getHasTaggedBy());
         videoIndividual.addProperty(model.getProperty(ns + "hasTaggedBy"), videohasTaggedByResource);
-        Resource videoisUsedByResource = model.createResource(ns + video.getIsUsedBy());
-        videoIndividual.addProperty(model.getProperty(ns + "isUsedBy"), videoisUsedByResource);
 
         // Guardar la ontología de vuelta en el archivo
         try {

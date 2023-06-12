@@ -7,11 +7,9 @@
     <list default="true" id="5cf787ba-9066-41f0-a43f-b1a3f5853390" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ontology/OntologiaVideos.owl" beforeDir="false" afterPath="$PROJECT_DIR$/ontology/OntologiaVideos.owl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Repos/ProgrammerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Repos/ProgrammerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Services/VideoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Services/VideoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/WebserviceOntologyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/WebserviceOntologyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Controllers/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Controllers/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Models/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Models/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Repos/JenaVideoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Repos/JenaVideoRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
