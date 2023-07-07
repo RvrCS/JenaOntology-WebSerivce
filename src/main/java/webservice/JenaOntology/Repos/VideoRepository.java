@@ -1,6 +1,8 @@
 package webservice.JenaOntology.Repos;
 
 import org.springframework.stereotype.Repository;
+import webservice.JenaOntology.DTOs.VideoTaggedDTO;
+import webservice.JenaOntology.Models.Tag;
 import webservice.JenaOntology.Models.Video;
 
 import java.util.List;
@@ -8,6 +10,12 @@ import java.util.List;
 @Repository
 public interface VideoRepository {
 
-    List<Video> findVideos();
+    List<VideoTaggedDTO> findVideos();
+
     void createVideo(Video video);
+
+    void insertTag(Tag tag);
+
+    List<Video> findVideosByTag(String tag);
+
 }

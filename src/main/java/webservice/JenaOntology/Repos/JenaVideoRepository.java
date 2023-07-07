@@ -1,28 +1,27 @@
 package webservice.JenaOntology.Repos;
 
-import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.OntModel;
-import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.RDFList;
+import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import webservice.JenaOntology.DTOs.VideoTaggedDTO;
+import webservice.JenaOntology.Models.Tag;
+import webservice.JenaOntology.Models.TagTimestamp;
 import webservice.JenaOntology.Models.Video;
 import webservice.JenaOntology.Utils.Constants;
 import webservice.JenaOntology.Utils.FormatOntologyString;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.*;
 
 
 public class JenaVideoRepository implements VideoRepository{
-
 
 
     private RepositoryConfig repositoryConfig;
@@ -38,39 +37,52 @@ public class JenaVideoRepository implements VideoRepository{
     }
 
     @Override
-    public List<Video> findVideos() {
-        List<Video> videosList = new ArrayList<>();
+    public List<VideoTaggedDTO> findVideos() {
+        List<VideoTaggedDTO> videosList = new ArrayList<>();
 
         model.read(Constants.ONTOLOGY_PATH.getValue());
 
-        String queryString = "SELECT ?video ?artifactLocation ?artifactFormat ?isMadeBy ?hasUsedIn ?hasTaggedBy ?isUsedBy WHERE { "
-                + "?video a <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos> . "
-                + "?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation> ?artifactLocation . "
-                + "?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactFormat> ?artifactFormat . "
-                + "OPTIONAL { ?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#isMadeBy> ?isMadeBy . } "
-                + "OPTIONAL { ?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#hasUsedIn> ?hasUsedIn . } "
-                + "OPTIONAL { ?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#hasTaggedBy> ?hasTaggedBy . } "
-                + "OPTIONAL { ?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#isUsedBy> ?isUsedBy . } "
-                + "}";
+        String videosClass = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos";
+        String locationProperty = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation";
+        String tagProperty = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactTag";
 
+        String queryString = String.format("SELECT ?artifactLocation ?artifactTag WHERE { " +
+                "?video a <%s> . " +
+                "?video <%s> ?artifactLocation . " +
+                "?video <%s> ?artifactTag . " +
+                "}", videosClass, locationProperty, tagProperty);
 
         Query query = QueryFactory.create(queryString);
         try (QueryExecution exec = QueryExecutionFactory.create(query, model)) {
             ResultSet results = exec.execSelect();
+            Map<String, VideoTaggedDTO> videosMap = new HashMap<>();
             while (results.hasNext()) {
                 QuerySolution solution = results.nextSolution();
-                Video video = new Video();
-                video.setArtifactLocation(formatter.getString(solution.get("artifactLocation")));
-                video.setArtifactFormat(formatter.getString(solution.get("artifactFormat")));
-                video.setIsMadeBy(formatter.getString(solution.get("isMadeBy")));
-                video.setHasUsedIn(formatter.getString(solution.get("hasUsedIn")));
-                video.setHasTaggedBy(formatter.getString(solution.get("hasTaggedBy")));
-                video.setIsUsedBy(formatter.getString(solution.get("isUsedBy")));
-                videosList.add(video);
+
+                RDFNode locationNode = solution.get("artifactLocation");
+                RDFNode tagsNode = solution.get("artifactTag");
+
+                if (locationNode != null && locationNode.isLiteral() && tagsNode != null && tagsNode.isLiteral()) {
+                    String artifactLocation = ((Literal) locationNode).getString();
+                    String artifactTag = ((Literal) tagsNode).getString();
+
+                    VideoTaggedDTO videoTaggedDTO = videosMap.get(artifactLocation);
+                    if (videoTaggedDTO == null) {
+                        videoTaggedDTO = new VideoTaggedDTO();
+                        videoTaggedDTO.setArtifactLocation(artifactLocation);
+                        videosMap.put(artifactLocation, videoTaggedDTO);
+                    }
+
+                    TagTimestamp tagTimestamp = new TagTimestamp();
+                    tagTimestamp.setTagTimestamp(artifactTag);
+                    videoTaggedDTO.getArtifactTagsTimestamp().add(tagTimestamp);
+                }
             }
-        }catch (Exception e){
-            System.out.println("Error: "+e.getMessage());
+            videosList.addAll(videosMap.values());
+        } catch (Exception e) {
+            throw new RuntimeException("Error while finding videos: " + e.getMessage(), e);
         }
+
         return videosList;
     }
 
@@ -88,34 +100,29 @@ public class JenaVideoRepository implements VideoRepository{
         videoIndividual.addProperty(model.getProperty(ns + "artifactLocation"), video.getArtifactLocation());
         videoIndividual.addProperty(model.getProperty(ns + "artifactFormat"), video.getArtifactFormat());
 
-        // Verificar si el isMadeBy existe en la entidad Programmer
+        for (Tag tag : video.getArtifactTags()) {
+            String artifactTagWithTimestamp = tag.getArtifactTag() + " / " + tag.getTimestamp();
+            Resource tagResource = model.createResource(ns + tag.getArtifactTag());
+            videoIndividual.addProperty(model.getProperty(ns + "artifactTag"), artifactTagWithTimestamp);
+        }
+
         Individual isMadeByIndividual = model.getIndividual(ns + video.getIsMadeBy());
         if (isMadeByIndividual == null) {
-            // Si no existe, crear un nuevo individuo en la entidad Programmer
             isMadeByIndividual = model.createIndividual(ns + video.getIsMadeBy(), model.getResource(ns + "Programmer"));
         }
         videoIndividual.addProperty(model.getProperty(ns + "isMadeBy"), isMadeByIndividual);
 
-        // Verificar si el isUsedBy existe en la entidad Programmer
         Individual isUsedByIndividual = model.getIndividual(ns + video.getIsUsedBy());
         if (isUsedByIndividual == null) {
-            // Si no existe, crear un nuevo individuo en la entidad Programmer
             isUsedByIndividual = model.createIndividual(ns + video.getIsUsedBy(), model.getResource(ns + "Programmer"));
         }
-        videoIndividual.addProperty(model.getProperty(ns + "isUsedBy"), isUsedByIndividual);
-
-
-       // Resource videoIsMadeByResource = model.createResource(ns + video.getIsMadeBy());
-        //videoIndividual.addProperty(model.getProperty(ns + "isMadeBy"), videoIsMadeByResource);
-        //Resource videoisUsedByResource = model.createResource(ns + video.getIsUsedBy());
-       // videoIndividual.addProperty(model.getProperty(ns + "isUsedBy"), videoisUsedByResource);
+        videoIndividual.addProperty(model.getProperty(ns + "isUSedBy"), isUsedByIndividual);
 
         Resource videohasUsedInResource = model.createResource(ns + video.getHasUsedIn());
         videoIndividual.addProperty(model.getProperty(ns + "hasUsedIn"), videohasUsedInResource);
         Resource videohasTaggedByResource = model.createResource(ns + video.getHasTaggedBy());
         videoIndividual.addProperty(model.getProperty(ns + "hasTaggedBy"), videohasTaggedByResource);
 
-        // Guardar la ontología de vuelta en el archivo
         try {
             FileOutputStream out = new FileOutputStream(Constants.ONTOLOGY_PATH.getValue());
             model.write(out, "RDF/XML-ABBREV");
@@ -125,4 +132,82 @@ public class JenaVideoRepository implements VideoRepository{
             System.out.println("Error al guardar la ontología: " + e.getMessage());
         }
     }
+
+    @Override
+    public void insertTag(Tag tag) {
+        String artifactTag = tag.getArtifactTag();
+        String timestamp = tag.getTimestamp().toString();
+        System.out.println(tag.toString());
+        try {
+            InputStream in = FileManager.get().open(Constants.ONTOLOGY_PATH.getValue());
+            model.read(in, null);
+
+            String ns = Constants.ONTOLOGY_NAMESPACE.getValue();
+
+            String queryString = "SELECT ?video WHERE { "
+                    + "?video a <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos> . "
+                    + "?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation> ?artifactLocation . "
+                    + "FILTER (?artifactLocation = \"" + tag.getUrl() + "\")"
+                    + "}";
+            Query query = QueryFactory.create(queryString);
+            try (QueryExecution exec = QueryExecutionFactory.create(query, model)) {
+                ResultSet results = exec.execSelect();
+                if (results.hasNext()) {
+                    QuerySolution solution = results.nextSolution();
+                    Resource videoResource = solution.getResource("video");
+                    Individual videoIndividual = model.getIndividual(videoResource.getURI());
+
+                    videoIndividual.addProperty(model.createProperty(ns + "artifactTag"), (artifactTag + " / " + timestamp));
+
+                    FileOutputStream out = new FileOutputStream(Constants.ONTOLOGY_PATH.getValue());
+                    model.write(out, "RDF/XML-ABBREV");
+                    System.out.println("Ontología actualizada y guardada en: " + Constants.ONTOLOGY_PATH.getValue());
+                    out.close();
+                } else {
+                    System.out.println("El Video no existe en la ontología.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cargar o guardar la ontología: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Video> findVideosByTag(String tag) {
+        List<Video> videosList = new ArrayList<>();
+
+        model.read(Constants.ONTOLOGY_PATH.getValue());
+
+        String queryString = "SELECT ?video ?artifactLocation WHERE { "
+                + "?video a <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos> . "
+                + "?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation> ?artifactLocation . "
+                + "?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactTag> ?artifactTag . "
+                + "FILTER (str(?artifactTag) = \"" + tag + "\")"
+                + "}";
+
+        Query query = QueryFactory.create(queryString);
+        try (QueryExecution exec = QueryExecutionFactory.create(query, model)) {
+            ResultSet results = exec.execSelect();
+            while (results.hasNext()) {
+                QuerySolution solution = results.nextSolution();
+                Video video = new Video();
+
+                RDFNode locationNode = solution.get("artifactLocation");
+                if (locationNode != null && locationNode.isLiteral()) {
+                    String artifactLocation = ((Literal) locationNode).getString();
+                    video.setArtifactLocation(artifactLocation);
+                }
+
+                video.setArtifactTags(Collections.singletonList(new Tag(tag)));
+
+                videosList.add(video);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        return videosList;
+    }
+
+
 }

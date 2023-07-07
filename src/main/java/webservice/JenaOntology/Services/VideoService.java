@@ -10,6 +10,8 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import webservice.JenaOntology.DTOs.VideoTaggedDTO;
+import webservice.JenaOntology.Models.Tag;
 import webservice.JenaOntology.Models.Video;
 import webservice.JenaOntology.Repos.JenaVideoRepository;
 import webservice.JenaOntology.Utils.Constants;
@@ -31,12 +33,22 @@ public class VideoService {
         jenaVideoRepository = new JenaVideoRepository();
     }
 
-    public List<Video> getVideosList(){
+    public List<VideoTaggedDTO> getVideosList(){
+
         return jenaVideoRepository.findVideos();
     }
 
     public void insertVideo(Video video) {
+
         jenaVideoRepository.createVideo(video);
+    }
+
+    public List<Video> getVideosListByTag(String tag){
+       return jenaVideoRepository.findVideosByTag(tag);
+    }
+
+    public void insertTag(Tag tag){
+        jenaVideoRepository.insertTag(tag);
     }
 
 }

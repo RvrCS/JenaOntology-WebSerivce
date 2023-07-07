@@ -66,14 +66,14 @@
     </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#hasProjectDescription"/>
-  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userName">
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userDescription"/>
-    </rdfs:subPropertyOf>
-  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#projectPlatform">
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#projectDescription"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userName">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userDescription"/>
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userGender">
@@ -87,15 +87,15 @@
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation">
     <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactDescription"/>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#projectName">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#projectDescription"/>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactSubject">
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactDescription"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactCreationDate">
     <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactDescription"/>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactSubject">
-    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactDescription"/>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#projectName">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#projectDescription"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactTag">
     <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactDescription"/>
@@ -106,10 +106,10 @@
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userPhone">
     <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userDescription"/>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userRole">
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userEmail">
     <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userDescription"/>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userEmail">
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userRole">
     <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#userDescription"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#projectLanguage">
@@ -157,13 +157,44 @@
     <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#hasExperience"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact07">
-    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >WebArtifact</projectPlatform>
-    <artifactLanguage>HTML</artifactLanguage>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video03">
+    <artifactLocation rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >Google Drive</artifactLocation>
     <artifactFormat rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >WebArtifact</artifactFormat>
-    <isMadeBy>
+    >MP4</artifactFormat>
+    <isUSedBy>
       <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis">
         <userExperience rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
         >1 year</userExperience>
@@ -185,14 +216,9 @@
         <userRole rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
         >Programmer</userRole>
       </owl:NamedIndividual>
-    </isMadeBy>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
-  </owl:NamedIndividual>
-  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_5">
-    <artifactSubject>transform a time value into YYYY-MM-DD</artifactSubject>
-    <artifactLanguage>Java</artifactLanguage>
-    <isUSedBy>
-      <Programmer rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Omar">
+    </isUSedBy>
+    <isMadeBy>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose">
         <isMemberOf>
           <WebProject rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One">
             <projectName>Automated billing process </projectName>
@@ -200,20 +226,6 @@
             <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
           </WebProject>
         </isMemberOf>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </Programmer>
-    </isUSedBy>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </WebArtifact>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact03">
-    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >WebProject</projectPlatform>
-    <artifactLanguage>Javascript</artifactLanguage>
-    <artifactFormat>WebArtifact</artifactFormat>
-    <isUSedBy>
-      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose">
-        <isMemberOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
         <userName rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
         >Jose</userName>
         <rdf:type rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Programmer"/>
@@ -228,58 +240,63 @@
         <userGender rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
         >male</userGender>
       </owl:NamedIndividual>
-    </isUSedBy>
-    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-  </owl:NamedIndividual>
-  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_1">
-    <artifactLanguage>JavaScript</artifactLanguage>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Omar"/>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </WebArtifact>
-  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video03">
-    <artifactLocation rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >Google Drive</artifactLocation>
-    <artifactFormat rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >MP4</artifactFormat>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
-    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    </isMadeBy>
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Videos>
-  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#videoJena01">
-    <artifactLocation>C:\Users\jose\Desktop\video1.mp4</artifactLocation>
-    <artifactFormat>mp4</artifactFormat>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Videos>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact06">
-    <projectPlatform>WebArtifact</projectPlatform>
-    <artifactLanguage>Javascript</artifactLanguage>
-    <artifactFormat>WebArtifact</artifactFormat>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
-    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#VideoTagAngel">
+    <artifactTag>Frontend / 05:20</artifactTag>
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact02">
-    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >WebProject</projectPlatform>
-    <artifactLanguage>PHP</artifactLanguage>
-    <artifactFormat>WebArtifact</artifactFormat>
+    <artifactLocation>drive.video/angel</artifactLocation>
+    <isMadeBy>
+      <Programmer rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#River"/>
+    </isMadeBy>
+    <artifactFormat>mp4</artifactFormat>
     <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#"/>
     <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-  </owl:NamedIndividual>
-  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_2">
-    <artifactLanguage>JavaScript</artifactLanguage>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Omar"/>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </WebArtifact>
-  <Programmer rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jesus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Programmer>
+    <artifactTag>Backend / 23:20</artifactTag>
+  </Videos>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
   <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video04">
     <artifactLocation rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
     >Google Drive</artifactLocation>
@@ -290,55 +307,6 @@
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Videos>
-  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#videoJena02">
-    <artifactLocation>C:\Users\jose\Desktop\video2.mp4</artifactLocation>
-    <artifactFormat>mp4</artifactFormat>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Videos>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact05">
-    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >WebProject</projectPlatform>
-    <artifactLanguage>PHP</artifactLanguage>
-    <artifactFormat>WebArtifact</artifactFormat>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
-    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
-  </owl:NamedIndividual>
-  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact01">
-    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >WebProject</projectPlatform>
-    <artifactLanguage>HTML</artifactLanguage>
-    <artifactFormat>WebArtifact</artifactFormat>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
-    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </WebArtifact>
-  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#VideoTestThroughEndPoint">
-    <hasTaggedBy>
-      <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#">
-        <artifactLocation>Google drive</artifactLocation>
-        <artifactFormat>MP4</artifactFormat>
-        <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
-        <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </Videos>
-    </hasTaggedBy>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
-    <isUsedBy>
-      <Programmer rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#River"/>
-    </isUsedBy>
-    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#River"/>
-    <artifactFormat>MP4</artifactFormat>
-    <artifactLocation>Google drive</artifactLocation>
-  </Videos>
-  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_3">
-    <artifactLanguage>Java</artifactLanguage>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Omar"/>
-    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </WebArtifact>
   <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video01">
     <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
     <artifactFormat rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
@@ -358,6 +326,31 @@
   </Videos>
   <owl:AllDisjointClasses>
     <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video02">
+    <artifactTag rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >Tag02_Video02</artifactTag>
+    <artifactLocation rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >Google Drive</artifactLocation>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+    <artifactTag rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >Tago03_Video02</artifactTag>
+    <rdf:type rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos"/>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <artifactFormat rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >MP4</artifactFormat>
+    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <artifactTag rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >Tago01_Video02</artifactTag>
+  </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
       <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
       <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
       <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
@@ -372,6 +365,171 @@
       <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
     </owl:members>
   </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Programmer rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jesus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Programmer>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#VideoTagJena3">
+    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+    <isUsedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <artifactTag>Tag100 / 12:30</artifactTag>
+    <artifactFormat>mp4</artifactFormat>
+    <artifactLocation>youtube.com/jena</artifactLocation>
+  </Videos>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#VideoTagJena2">
+    <artifactLocation>youtube.com/jena</artifactLocation>
+    <artifactFormat>mp4</artifactFormat>
+    <artifactTag>Tag12 / 12:30</artifactTag>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <isUsedBy>Jose</isUsedBy>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#"/>
+  </Videos>
   <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video05">
     <artifactLocation rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
     >Google Drive</artifactLocation>
@@ -382,11 +540,350 @@
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Videos>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#VideoTagJena4">
+    <artifactTag>Tag1000 / 12:30</artifactTag>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+    <artifactTag>New tag through put endpoint / 27:32</artifactTag>
+    <artifactFormat>mp4</artifactFormat>
+    <artifactLocation>youtube.com/jena</artifactLocation>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#"/>
+    <artifactTag>Ya jalo / 27:32</artifactTag>
+  </Videos>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video06">
+    <artifactLocation rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >Google Drive</artifactLocation>
+    <artifactFormat rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >MP4</artifactFormat>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Videos>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#videoJena01">
+    <artifactLocation>C:\Users\jose\Desktop\video1.mp4</artifactLocation>
+    <artifactFormat>mp4</artifactFormat>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Videos>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#VideoTagJena">
+    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+    <isUsedBy>Jose</isUsedBy>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <timestamp>12:30</timestamp>
+    <artifactTag>Tag1</artifactTag>
+    <artifactFormat>mp4</artifactFormat>
+    <artifactLocation>youtube.com/jena</artifactLocation>
+  </Videos>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#videoJena02">
+    <artifactLocation>C:\Users\jose\Desktop\video2.mp4</artifactLocation>
+    <artifactFormat>mp4</artifactFormat>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Videos>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact08">
     <projectPlatform>WebArtifact</projectPlatform>
     <artifactLanguage>PHP</artifactLanguage>
     <artifactFormat>WebArtifact</artifactFormat>
     <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+  </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact07">
+    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >WebArtifact</projectPlatform>
+    <artifactLanguage>HTML</artifactLanguage>
+    <artifactFormat rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >WebArtifact</artifactFormat>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+  </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#VideoTagPollo">
+    <artifactTag>backend de conceptos / 10:22</artifactTag>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+    <artifactTag>Manejo de JWT en backend / 13:46</artifactTag>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <artifactFormat>mp4</artifactFormat>
+    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#"/>
+    <artifactTag>Victor tuvo una idea / 12:04</artifactTag>
+    <artifactTag>Frontend de conceptos / 23:20</artifactTag>
+    <artifactLocation>drive.video/pollo</artifactLocation>
+    <isMadeBy>
+      <Programmer rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Pollo"/>
+    </isMadeBy>
+  </Videos>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact06">
+    <projectPlatform>WebArtifact</projectPlatform>
+    <artifactLanguage>Javascript</artifactLanguage>
+    <artifactFormat>WebArtifact</artifactFormat>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
+  </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact05">
+    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >WebProject</projectPlatform>
+    <artifactLanguage>PHP</artifactLanguage>
+    <artifactFormat>WebArtifact</artifactFormat>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact04">
@@ -398,6 +895,196 @@
     <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
   </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_5">
+    <artifactSubject>transform a time value into YYYY-MM-DD</artifactSubject>
+    <artifactLanguage>Java</artifactLanguage>
+    <isUSedBy>
+      <Programmer rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Omar">
+        <isMemberOf rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Programmer>
+    </isUSedBy>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </WebArtifact>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact03">
+    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >WebProject</projectPlatform>
+    <artifactLanguage>Javascript</artifactLanguage>
+    <artifactFormat>WebArtifact</artifactFormat>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+  </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact02">
+    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >WebProject</projectPlatform>
+    <artifactLanguage>PHP</artifactLanguage>
+    <artifactFormat>WebArtifact</artifactFormat>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+  </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifact01">
+    <projectPlatform rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    >WebProject</projectPlatform>
+    <artifactLanguage>HTML</artifactLanguage>
+    <artifactFormat>WebArtifact</artifactFormat>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </WebArtifact>
+  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_3">
+    <artifactLanguage>Java</artifactLanguage>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Omar"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </WebArtifact>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
   <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_4">
     <artifactSubject>Read and Write Json</artifactSubject>
     <artifactLanguage>Java</artifactLanguage>
@@ -405,34 +1092,417 @@
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </WebArtifact>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video02">
-    <artifactTag rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >Tag02_Video02</artifactTag>
-    <artifactLocation rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >Google Drive</artifactLocation>
-    <artifactTag rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >Tago03_Video02</artifactTag>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_1">
+    <artifactLanguage>JavaScript</artifactLanguage>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Omar"/>
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos"/>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
-    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
-    <artifactFormat rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >MP4</artifactFormat>
-    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
-    <artifactTag rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >Tago01_Video02</artifactTag>
-  </owl:NamedIndividual>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </WebArtifact>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <WebArtifact rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Resource_2">
+    <artifactLanguage>JavaScript</artifactLanguage>
+    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Omar"/>
+    <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_One"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </WebArtifact>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
   <Programmer rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jaime">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Programmer>
-  <Videos rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Video06">
-    <artifactLocation rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >Google Drive</artifactLocation>
-    <artifactFormat rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    >MP4</artifactFormat>
-    <isUSedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
-    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Luis"/>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#timestamp"/>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#isUsedBy"/>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#VideoEndpoint">
+    <artifactLocation>Google drive</artifactLocation>
     <hasUsedIn rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project_Two"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Videos>
+    <artifactTag>Tag01</artifactTag>
+    <artifactTag>Tag02</artifactTag>
+    <rdf:type rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos"/>
+    <isUsedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <artifactFormat>MP4</artifactFormat>
+    <isMadeBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+    <artifactTag>Tag03</artifactTag>
+    <hasTaggedBy rdf:resource="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Jose"/>
+  </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Artifacts"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Layers"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Project"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Team"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DataBaseArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#DesktopArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#MobileArtifact"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#WebArtifact"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
 </rdf:RDF>

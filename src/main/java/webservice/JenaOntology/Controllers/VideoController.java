@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import webservice.JenaOntology.DTOs.VideoTaggedDTO;
+import webservice.JenaOntology.Models.Tag;
 import webservice.JenaOntology.Models.Video;
 import webservice.JenaOntology.Services.VideoService;
 
@@ -21,11 +23,24 @@ public class VideoController {
 
 
     @GetMapping("/videos")
-    public ResponseEntity<List<Video>> getVideos() {
+    public ResponseEntity<List<VideoTaggedDTO>> getVideos() {
 
-        List<Video> videos = videoService.getVideosList();
+        List<VideoTaggedDTO> videos = videoService.getVideosList();
 
         return ResponseEntity.ok(videos);
+    }
+
+    @GetMapping("/videos/{tag}")
+    public ResponseEntity<List<Video>> getVideosByTag(@PathVariable String tag){
+       List<Video> videos = videoService.getVideosListByTag(tag);
+       return ResponseEntity.ok(videos);
+    }
+
+    @PutMapping("/videos/tag")
+    public ResponseEntity<String> insertTag(@RequestBody Tag tag) {
+
+        videoService.insertTag(tag);
+        return ResponseEntity.ok("Tag insertado exitosamente");
     }
 
     @PostMapping("/videos/save")

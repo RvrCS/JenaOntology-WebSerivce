@@ -10,6 +10,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Controllers/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Controllers/VideoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Models/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Models/Video.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Repos/JenaVideoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Repos/JenaVideoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Repos/VideoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Repos/VideoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Services/VideoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webservice/JenaOntology/Services/VideoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,14 +56,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/rvrso/OneDrive/Documentos/Codes/WORK-FOLDER/webServiceJena",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rvrso/OneDrive/Documentos/GitHub/ProFeCo/ProConsumoApp&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="WebserviceOntologyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="webservice.JenaOntology.WebserviceOntologyApplication" />

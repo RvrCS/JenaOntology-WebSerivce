@@ -16,7 +16,7 @@ public class Video {
         private String artifactName;
         private String artifactLocation;
         private String artifactFormat;
-        private List<String> artifactTags;
+        private List<Tag> artifactTags;
         private String isMadeBy;
         private String hasUsedIn;
         private String hasTaggedBy;
@@ -26,10 +26,17 @@ public class Video {
         this.artifactName = "";
         this.artifactLocation = "";
         this.artifactFormat = "";
-        this.artifactTags = new ArrayList<String>();
+        this.artifactTags = new ArrayList<Tag>();
         this.isMadeBy = "";
         this.hasUsedIn = "";
         this.hasTaggedBy = "";
         this.isUsedBy = "";
+    }
+
+    public void setArtifactTag(Tag tag){
+        if(artifactTags == null){
+            this.artifactTags = new ArrayList<>();
+        }
+            this.artifactTags.add(tag);
     }
 }
