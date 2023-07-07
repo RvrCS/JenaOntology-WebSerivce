@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 
-public class JenaVideoRepository implements VideoRepository{
+public class JenaVideoRepository implements VideoRepository {
 
 
     private RepositoryConfig repositoryConfig;
@@ -30,7 +30,7 @@ public class JenaVideoRepository implements VideoRepository{
 
     private FormatOntologyString formatter;
 
-    public JenaVideoRepository(){
+    public JenaVideoRepository() {
         repositoryConfig = RepositoryConfig.getInstance();
         formatter = new FormatOntologyString();
         model = repositoryConfig.getOntModel();
@@ -66,16 +66,24 @@ public class JenaVideoRepository implements VideoRepository{
                     String artifactLocation = ((Literal) locationNode).getString();
                     String artifactTag = ((Literal) tagsNode).getString();
 
-                    VideoTaggedDTO videoTaggedDTO = videosMap.get(artifactLocation);
-                    if (videoTaggedDTO == null) {
-                        videoTaggedDTO = new VideoTaggedDTO();
-                        videoTaggedDTO.setArtifactLocation(artifactLocation);
-                        videosMap.put(artifactLocation, videoTaggedDTO);
-                    }
+                    String[] tagsWithTimestamp = artifactTag.split("\\/", 2);
+                    if (tagsWithTimestamp.length == 2) {
 
-                    TagTimestamp tagTimestamp = new TagTimestamp();
-                    tagTimestamp.setTagTimestamp(artifactTag);
-                    videoTaggedDTO.getArtifactTagsTimestamp().add(tagTimestamp);
+                        String tag = tagsWithTimestamp[0];
+                        String timestamp = tagsWithTimestamp[1];
+
+                        VideoTaggedDTO videoTaggedDTO = videosMap.get(artifactLocation);
+                        if (videoTaggedDTO == null) {
+                            videoTaggedDTO = new VideoTaggedDTO();
+                            videoTaggedDTO.setArtifactLocation(artifactLocation);
+                            videosMap.put(artifactLocation, videoTaggedDTO);
+                        }
+
+                        TagTimestamp tagTimestamp = new TagTimestamp();
+                        tagTimestamp.setTag(tag);
+                        tagTimestamp.setTimestamp(timestamp);
+                        videoTaggedDTO.getArtifactTagsTimestamp().add(tagTimestamp);
+                    }
                 }
             }
             videosList.addAll(videosMap.values());

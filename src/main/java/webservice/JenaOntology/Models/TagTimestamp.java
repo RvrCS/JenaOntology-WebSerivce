@@ -5,11 +5,17 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
 public class TagTimestamp {
 
 
-    private String tagTimestamp;
+    private String tag;
+
+    private String timestamp;
+
+    public TagTimestamp(){
+        this.tag = "";
+        this.timestamp = "";
+    }
 
 }
