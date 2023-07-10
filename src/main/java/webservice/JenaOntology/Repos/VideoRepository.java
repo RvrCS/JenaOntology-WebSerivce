@@ -16,6 +16,6 @@ public interface VideoRepository {
 
     void insertTag(Tag tag);
 
-    List<Video> findVideosByTag(String tag);
+    List<VideoTaggedDTO> findVideosByTag(String tag);
 
 }

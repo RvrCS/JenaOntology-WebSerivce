@@ -31,8 +31,8 @@ public class VideoController {
     }
 
     @GetMapping("/videos/{tag}")
-    public ResponseEntity<List<Video>> getVideosByTag(@PathVariable String tag){
-       List<Video> videos = videoService.getVideosListByTag(tag);
+    public ResponseEntity<List<VideoTaggedDTO>> getVideosByTag(@PathVariable String tag){
+       List<VideoTaggedDTO> videos = videoService.getVideosListByTag(tag);
        return ResponseEntity.ok(videos);
     }
 

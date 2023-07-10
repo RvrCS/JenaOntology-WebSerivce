@@ -43,7 +43,7 @@ public class VideoService {
         jenaVideoRepository.createVideo(video);
     }
 
-    public List<Video> getVideosListByTag(String tag){
+    public List<VideoTaggedDTO> getVideosListByTag(String tag){
        return jenaVideoRepository.findVideosByTag(tag);
     }
 

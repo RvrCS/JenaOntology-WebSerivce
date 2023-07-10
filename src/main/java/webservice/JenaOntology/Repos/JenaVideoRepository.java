@@ -42,7 +42,7 @@ public class JenaVideoRepository implements VideoRepository {
 
         model.read(Constants.ONTOLOGY_PATH.getValue());
 
-        String videosClass = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos";
+        String videoUri = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos";
         String locationProperty = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation";
         String tagProperty = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactTag";
 
@@ -50,7 +50,7 @@ public class JenaVideoRepository implements VideoRepository {
                 "?video a <%s> . " +
                 "?video <%s> ?artifactLocation . " +
                 "?video <%s> ?artifactTag . " +
-                "}", videosClass, locationProperty, tagProperty);
+                "}", videoUri, locationProperty, tagProperty);
 
         Query query = QueryFactory.create(queryString);
         try (QueryExecution exec = QueryExecutionFactory.create(query, model)) {
@@ -109,8 +109,8 @@ public class JenaVideoRepository implements VideoRepository {
         videoIndividual.addProperty(model.getProperty(ns + "artifactFormat"), video.getArtifactFormat());
 
         for (Tag tag : video.getArtifactTags()) {
-            String artifactTagWithTimestamp = tag.getArtifactTag() + " / " + tag.getTimestamp();
-            Resource tagResource = model.createResource(ns + tag.getArtifactTag());
+            String artifactTagWithTimestamp = tag.getArtifactTag().toLowerCase() + " / " + tag.getTimestamp();
+//            Resource tagResource = model.createResource(ns + tag.getArtifactTag().toLowerCase());
             videoIndividual.addProperty(model.getProperty(ns + "artifactTag"), artifactTagWithTimestamp);
         }
 
@@ -143,9 +143,10 @@ public class JenaVideoRepository implements VideoRepository {
 
     @Override
     public void insertTag(Tag tag) {
-        String artifactTag = tag.getArtifactTag();
+        String artifactTag = tag.getArtifactTag().toLowerCase();
         String timestamp = tag.getTimestamp().toString();
-        System.out.println(tag.toString());
+        String artifactLocation = tag.getUrl();
+
         try {
             InputStream in = FileManager.get().open(Constants.ONTOLOGY_PATH.getValue());
             model.read(in, null);
@@ -155,7 +156,7 @@ public class JenaVideoRepository implements VideoRepository {
             String queryString = "SELECT ?video WHERE { "
                     + "?video a <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos> . "
                     + "?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation> ?artifactLocation . "
-                    + "FILTER (?artifactLocation = \"" + tag.getUrl() + "\")"
+                    + "FILTER (?artifactLocation = \"" + artifactLocation + "\")"
                     + "}";
             Query query = QueryFactory.create(queryString);
             try (QueryExecution exec = QueryExecutionFactory.create(query, model)) {
@@ -181,40 +182,57 @@ public class JenaVideoRepository implements VideoRepository {
     }
 
     @Override
-    public List<Video> findVideosByTag(String tag) {
-        List<Video> videosList = new ArrayList<>();
+    public List<VideoTaggedDTO> findVideosByTag(String tag) {
+        List<VideoTaggedDTO> videosList = new ArrayList<>();
 
         model.read(Constants.ONTOLOGY_PATH.getValue());
 
-        String queryString = "SELECT ?video ?artifactLocation WHERE { "
-                + "?video a <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos> . "
-                + "?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation> ?artifactLocation . "
-                + "?video <http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactTag> ?artifactTag . "
-                + "FILTER (str(?artifactTag) = \"" + tag + "\")"
-                + "}";
+        String videosClass = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#Videos";
+        String locationProperty = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactLocation";
+        String tagProperty = "http://www.semanticweb.org/jose/ontologies/2019/4/untitled-ontology-24#artifactTag";
+
+        String queryString = String.format("SELECT ?artifactLocation ?artifactTag WHERE { " +
+                "?video a <%s> . " +
+                "?video <%s> ?artifactLocation . " +
+                "?video <%s> ?artifactTag . " +
+                "FILTER (CONTAINS(?artifactTag, \"%s\"))" +
+                "}", videosClass, locationProperty, tagProperty, tag.toLowerCase());
 
         Query query = QueryFactory.create(queryString);
         try (QueryExecution exec = QueryExecutionFactory.create(query, model)) {
             ResultSet results = exec.execSelect();
             while (results.hasNext()) {
                 QuerySolution solution = results.nextSolution();
-                Video video = new Video();
 
                 RDFNode locationNode = solution.get("artifactLocation");
-                if (locationNode != null && locationNode.isLiteral()) {
+                RDFNode tagsNode = solution.get("artifactTag");
+
+                if (locationNode != null && locationNode.isLiteral() && tagsNode != null && tagsNode.isLiteral()) {
                     String artifactLocation = ((Literal) locationNode).getString();
-                    video.setArtifactLocation(artifactLocation);
+                    String artifactTag = ((Literal) tagsNode).getString();
+
+                    String[] tagsWithTimestamp = artifactTag.split("/", 2);
+                    String tagValue = tagsWithTimestamp[0];
+                    String timestamp = tagsWithTimestamp[1];
+
+                    VideoTaggedDTO videoTaggedDTO = new VideoTaggedDTO();
+                    videoTaggedDTO.setArtifactLocation(artifactLocation);
+
+                    TagTimestamp tagTimestamp = new TagTimestamp();
+                    tagTimestamp.setTag(tagValue.trim());
+                    tagTimestamp.setTimestamp(timestamp.trim());
+                    videoTaggedDTO.getArtifactTagsTimestamp().add(tagTimestamp);
+
+                    videosList.add(videoTaggedDTO);
                 }
-
-                video.setArtifactTags(Collections.singletonList(new Tag(tag)));
-
-                videosList.add(video);
             }
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new RuntimeException("Error while finding videos by tag: " + e.getMessage(), e);
         }
 
         return videosList;
+
+
     }
 
 
